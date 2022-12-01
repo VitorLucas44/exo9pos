@@ -1,4 +1,4 @@
-body{
+body {
     font-size: 50px;
 }
 
@@ -50,10 +50,39 @@ a::after {
     transition: opacity 300ms, transform 300ms;
 }
 
+a:first-child::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1em;
+    background-color: red;
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+}
+
+
+/* li:nth-child(1) a:nth-child(1):hover {
+    background-color: red;
+    --p: 100%;
+    --t: .3s;
+    color: red;
+    z-index: -1;
+    background:
+        linear-gradient(red 0 0) no-repeat calc(200% - var(--p, 0%)) 100% / 200% var(--p, .08em);
+    transition: .3s var(--t, 0s), background-position .3s calc(.3s - var(--t, 0s));
+} */
+
 a:hover::after,
 a:focus::after {
-    opacity: 1;
-    transform: translate3d(0, 0.2em, 0);
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+}
+
+li:first-child a {
+    overflow: hidden;
+    animation: bgred 1s;
 }
 
 
@@ -82,3 +111,25 @@ li:nth-child(3) a:hover::after,
 li:nth-child(3) a:focus::after {
     transform: scale(1);
 }
+
+
+	li:first-child:before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	li:first-child:hover,
+	li:first-child:focus,
+	li:first-child:active {
+		background-color: red;
+
+		/* a:before {
+			.prefixed(transform, scaleY(1));
+		} */
+	}
+/* } */
